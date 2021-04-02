@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ilggun/view/detailPage.dart';
-import 'package:ilggun/view/homePage.dart';
+import 'package:ilggun/view/homePage/homePage.dart';
 
 void main() {
   runApp(MyApp());

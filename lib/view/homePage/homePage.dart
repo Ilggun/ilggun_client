@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ilggun/model/Info.dart';
-import 'package:ilggun/view/component/buildTile.dart';
+import 'package:ilggun/view/homePage/component/buildTile.dart';
 import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,11 +57,13 @@ class _HomePageState extends State<HomePage> {
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 if (index == infoList.length)
+                  return buildAddTile();
+                else if (index == infoList.length + 1)
                   return buildRefreshButton();
                 else
                   return BuildTile(info: infoList[index]);
               },
-              childCount: infoList.length + 1,
+              childCount: infoList.length + 2,
             ),
           )
         ],
@@ -94,6 +97,25 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildAddTile() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      child: InkWell(
+        // onTap: () => Get.toNamed(''),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.black12,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.add),
           ),
         ),
       ),
