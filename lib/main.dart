@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ilggun/view/detailPage.dart';
+import 'package:ilggun/view/addPage/addPage.dart';
+import 'package:ilggun/view/detailPage/detailPage.dart';
 import 'package:ilggun/view/homePage/homePage.dart';
 
 void main() {
@@ -44,6 +45,11 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/detailPage',
           page: () => DetailPage(),
+          transition: Transition.fadeIn,
+        ),
+        GetPage(
+          name: '/addPage',
+          page: () => AddPage(),
           transition: Transition.fadeIn,
         )
       ],
