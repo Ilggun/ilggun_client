@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         slivers: [
           SliverAppBar(
             title: Text(
-              "일 꾼 🛠",
+              "천리안",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       child: InkWell(
-        // onTap: () => Get.toNamed(''),
+        onTap: () => Get.toNamed('/addPage'),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
