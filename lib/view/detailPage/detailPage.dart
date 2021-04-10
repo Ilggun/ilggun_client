@@ -23,7 +23,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: NewColorSet.background,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: InkWell(
@@ -33,13 +33,13 @@ class _DetailPageState extends State<DetailPage> {
           child: Container(
             margin: EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.white,
+              // color: Colors.white,
               shape: BoxShape.circle,
-              boxShadow: ShadowStyle.shadow(),
+              // boxShadow: ShadowStyle.shadow(),
             ),
             child: Icon(
               Icons.chevron_left_rounded,
-              color: ColorSet.noWarning,
+              color: NewColorSet.blue,
             ),
           ),
         ),
@@ -50,13 +50,13 @@ class _DetailPageState extends State<DetailPage> {
               margin: EdgeInsets.all(12),
               padding: EdgeInsets.all(3),
               decoration: BoxDecoration(
-                color: Colors.white,
+                // color: Colors.white,
                 shape: BoxShape.circle,
-                boxShadow: ShadowStyle.shadow(),
+                // boxShadow: ShadowStyle.shadow(),
               ),
               child: Icon(
                 Icons.refresh_rounded,
-                color: ColorSet.noWarning,
+                color: NewColorSet.blue,
               ),
             ),
           ),
@@ -64,62 +64,64 @@ class _DetailPageState extends State<DetailPage> {
         title: Text(
           info.title,
           style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+            color: NewColorSet.blue,
+            fontWeight: FontWeight.w600,
           ),
         ),
         elevation: 0.0,
       ),
-      body: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            child: CustomPaint(
-              painter: CirclePainter(),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  padding: EdgeInsets.only(bottom: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            // Container(
+            //   width: double.infinity,
+            //   height: double.infinity,
+            //   child: CustomPaint(
+            //     painter: CirclePainter(),
+            //   ),
+            // ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(bottom: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            buildTile(
+                                "온도", info.temperature, ColorSet.temperature),
+                            buildTile("습도", info.humidity, ColorSet.humidity),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            buildTile("가스", info.gas, ColorSet.gas),
+                            buildTile("연기", info.smoke, ColorSet.smoke),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          buildTile(
-                              "온도", info.temperature, ColorSet.temperature),
-                          buildTile("습도", info.humidity, ColorSet.humidity),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          buildTile("가스", info.gas, ColorSet.gas),
-                          buildTile("연기", info.smoke, ColorSet.smoke),
-                        ],
-                      ),
-                    ],
+                  const SizedBox(
+                    height: 20,
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: BuildMainChart(),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: BuildMainChart(),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -152,7 +154,7 @@ class _DetailPageState extends State<DetailPage> {
                 Stack(
                   children: [
                     Positioned(
-                      bottom: 7,
+                      bottom: 2,
                       left: 0,
                       child: Container(
                         width: 65,

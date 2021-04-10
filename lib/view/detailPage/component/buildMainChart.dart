@@ -68,8 +68,8 @@ class _BuildMainChartState extends State<BuildMainChart> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: selectedRangeButtonIndex == index
-                    ? ColorSet.noWarning.withOpacity(0.7)
-                    : ColorSet.white,
+                    ? NewColorSet.blue.withOpacity(0.7)
+                    : NewColorSet.background,
               ),
             ),
           ),
@@ -114,10 +114,10 @@ class _BuildMainChartState extends State<BuildMainChart> {
     }
     result += ' ~ ' + convertDateTimeTitle(dateTimeNow);
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 60),
+      margin: EdgeInsets.symmetric(horizontal: 40),
       padding: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
-        color: ColorSet.noWarning,
+        color: NewColorSet.blue,
         borderRadius: BorderRadius.circular(20),
         boxShadow: ShadowStyle.shadow(),
       ),

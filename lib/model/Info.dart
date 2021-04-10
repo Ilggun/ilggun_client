@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 
 class Info {
   String title;
+  String product;
   double temperature;
   double humidity;
   double gas;
@@ -9,11 +10,13 @@ class Info {
 
   Info(
       {@required String title,
+      @required String product,
       @required double temperature,
       @required double humidity,
       @required double gas,
       @required double smoke}) {
     this.title = title;
+    this.product = product;
     this.temperature = temperature;
     this.humidity = humidity;
     this.gas = gas;
@@ -21,6 +24,7 @@ class Info {
   }
 
   String getTitle() => title;
+  String getProduct() => product;
   double getTemperature() => temperature;
   double getHumidity() => humidity;
   double getGas() => gas;
@@ -28,6 +32,10 @@ class Info {
 
   void setTitle(String title) {
     this.title = title;
+  }
+
+  void setProduct(String product) {
+    this.product = product;
   }
 
   void setTemperature(double temperature) {
@@ -48,6 +56,6 @@ class Info {
 
   @override
   String toString() {
-    return "$title, $temperature, $humidity, $gas, $smoke";
+    return "$title, $product, $temperature, $humidity, $gas, $smoke";
   }
 }

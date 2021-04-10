@@ -39,11 +39,25 @@ class BuildTile extends StatelessWidget {
                     child: Text(
                       info.title,
                       style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                        fontWeight: FontWeight.w600,
                         color: ColorSet.dark,
                       ),
                     ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      info.product,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -77,7 +91,7 @@ class BuildTile extends StatelessWidget {
             "수정",
             style: TextStyle(
               fontSize: 18,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
               color: ColorSet.white,
             ),
           ),
@@ -92,7 +106,7 @@ class BuildTile extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: ColorSet.warning,
+          color: NewColorSet.red,
           boxShadow: ShadowStyle.shadow(),
         ),
         child: SlideAction(
@@ -100,7 +114,7 @@ class BuildTile extends StatelessWidget {
             "삭제",
             style: TextStyle(
               fontSize: 18,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
               color: ColorSet.white,
             ),
           ),
@@ -110,7 +124,7 @@ class BuildTile extends StatelessWidget {
   }
 
   Widget buildBadge(String title, double value) {
-    Color warningColor = value >= 1 ? ColorSet.warning : ColorSet.noWarning;
+    Color warningColor = value >= 1 ? NewColorSet.red : NewColorSet.blue;
     return Padding(
       padding: const EdgeInsets.only(right: 5),
       child: Container(
@@ -124,7 +138,7 @@ class BuildTile extends StatelessWidget {
             title + " " + value.toString(),
             style: TextStyle(
               color: ColorSet.white,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),

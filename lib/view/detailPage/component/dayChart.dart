@@ -106,7 +106,8 @@ class _DayChartState extends State<DayChart> {
     return LineChartData(
       lineTouchData: LineTouchData(
         touchTooltipData: LineTouchTooltipData(
-          tooltipBgColor: Colors.white,
+          tooltipBgColor: NewColorSet.background,
+          showOnTopOfTheChartBoxArea: false,
         ),
         touchCallback: (LineTouchResponse touchResponse) {
           print(touchResponse);
@@ -194,7 +195,7 @@ class _DayChartState extends State<DayChart> {
         ),
       ),
       borderData: FlBorderData(
-        show: true,
+        show: false,
         border: const Border(
           left: BorderSide(
             color: Colors.transparent,

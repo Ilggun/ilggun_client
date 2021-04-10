@@ -23,3 +23,9 @@ class ColorSet {
   static const Color smoke = Color(0xfff9320c);
   static const Color smokeOp = Color(0x90f9320c);
 }
+
+class NewColorSet {
+  static const Color background = Color(0xfff1f5f9);
+  static const Color blue = Color(0xff3d73de);
+  static const Color red = Color(0xfffd5c59);
+}
