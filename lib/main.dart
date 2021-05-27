@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:ilggun/view/addPage/addPage.dart';
 import 'package:ilggun/view/detailPage/detailPage.dart';
 import 'package:ilggun/view/homePage/homePage.dart';
+import 'package:ilggun/view/signinPage/signinPage.dart';
+import 'package:ilggun/view/singupPage/singupPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,16 +33,27 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'NanumGothic',
         primarySwatch: white,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
       ),
-      initialRoute: '/',
+      initialRoute: '/signInPage',
       getPages: [
         GetPage(
           name: '/',
           page: () => HomePage(),
           transition: Transition.fadeIn,
+        ),
+        GetPage(
+          name: '/signInPage',
+          page: () => SignInPage(),
+          transition: Transition.fadeIn,
+        ),
+        GetPage(
+          name: '/signUpPage',
+          page: () => SignUpPage(),
+          transition: Transition.cupertinoDialog,
         ),
         GetPage(
           name: '/detailPage',

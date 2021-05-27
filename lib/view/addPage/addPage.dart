@@ -14,15 +14,15 @@ class _AddPageState extends State<AddPage> {
 
   TextStyle hintStyle() {
     return TextStyle(
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.w200,
       fontSize: 18,
     );
   }
 
   TextStyle labelStyle() {
     return TextStyle(
-      color: ColorSet.noWarning,
-      fontWeight: FontWeight.bold,
+      color: NewColorSet.blue,
+      fontWeight: FontWeight.w600,
       fontSize: 23,
     );
   }
@@ -112,14 +112,14 @@ class _AddPageState extends State<AddPage> {
                 : print("오류");
           },
           child: Container(
-            color: ColorSet.noWarning,
+            color: NewColorSet.blue,
             height: 60,
             child: Center(
               child: Text(
                 "등록하기",
                 style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                     fontSize: 20),
               ),
             ),
