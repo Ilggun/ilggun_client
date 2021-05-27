@@ -4,7 +4,6 @@ import 'package:ilggun/model/Info.dart';
 import 'package:ilggun/style/colorStyle.dart';
 import 'package:ilggun/style/shadowStyle.dart';
 import 'package:ilggun/view/detailPage/component/buildMainChart.dart';
-import 'package:ilggun/view/detailPage/component/circlePainter.dart';
 
 class DetailPage extends StatefulWidget {
   @override
@@ -39,7 +38,7 @@ class _DetailPageState extends State<DetailPage> {
             ),
             child: Icon(
               Icons.chevron_left_rounded,
-              color: NewColorSet.blue,
+              color: ColorSet.dark,
             ),
           ),
         ),
@@ -50,13 +49,11 @@ class _DetailPageState extends State<DetailPage> {
               margin: EdgeInsets.all(12),
               padding: EdgeInsets.all(3),
               decoration: BoxDecoration(
-                // color: Colors.white,
                 shape: BoxShape.circle,
-                // boxShadow: ShadowStyle.shadow(),
               ),
               child: Icon(
                 Icons.refresh_rounded,
-                color: NewColorSet.blue,
+                color: ColorSet.dark,
               ),
             ),
           ),
@@ -64,7 +61,7 @@ class _DetailPageState extends State<DetailPage> {
         title: Text(
           info.title,
           style: TextStyle(
-            color: NewColorSet.blue,
+            color: ColorSet.dark,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -73,13 +70,6 @@ class _DetailPageState extends State<DetailPage> {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            // Container(
-            //   width: double.infinity,
-            //   height: double.infinity,
-            //   child: CustomPaint(
-            //     painter: CirclePainter(),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0),
               child: Column(
