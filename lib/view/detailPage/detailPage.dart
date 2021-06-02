@@ -147,7 +147,7 @@ class _DetailPageState extends State<DetailPage> {
                       bottom: 2,
                       left: 0,
                       child: Container(
-                        width: 65,
+                        width: 50,
                         height: 10,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -156,7 +156,7 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     ),
                     Text(
-                      value.toString(),
+                      (value * 100).toStringAsFixed(0),
                       style: TextStyle(
                         color: ColorSet.dark,
                         fontSize: 45,

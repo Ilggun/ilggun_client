@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:ilggun/view/addPage/addPage.dart';
 import 'package:ilggun/view/detailPage/detailPage.dart';
 import 'package:ilggun/view/homePage/homePage.dart';
+import 'package:ilggun/view/homePage/homePageTemp.dart';
 import 'package:ilggun/view/signinPage/signinPage.dart';
 import 'package:ilggun/view/singupPage/singupPage.dart';
 
@@ -43,6 +44,11 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/',
           page: () => HomePage(),
+          transition: Transition.fadeIn,
+        ),
+        GetPage(
+          name: '/homePageTemp',
+          page: () => HomePage2(),
           transition: Transition.fadeIn,
         ),
         GetPage(
