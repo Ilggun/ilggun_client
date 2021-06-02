@@ -23,6 +23,7 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _passwordCheck;
 
   bool _emailCheck;
+  bool _phoneCheck;
 
   bool validTextField(TextEditingController textEditingController) {
     if (textEditingController.text.isEmpty ||
@@ -41,10 +42,17 @@ class _SignUpPageState extends State<SignUpPage> {
     return (!regex.hasMatch(value)) ? false : true;
   }
 
+  bool validatePhone(String value) {
+    Pattern pattern = r'^\d{3}-\d{3,4}-\d{4}$';
+    RegExp regex = new RegExp(pattern);
+    return (!regex.hasMatch(value)) ? false : true;
+  }
+
   @override
   void initState() {
     _passwordCheck = false;
     _emailCheck = false;
+    _phoneCheck = false;
     super.initState();
   }
 
@@ -73,6 +81,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   _buildNameArea(),
                   const SizedBox(height: 30),
                   _buildPhoneArea(),
+                  const SizedBox(height: 10),
+                  _buildPhoneCheckWidget(),
                   const SizedBox(height: 30),
                   _buildMailArea(),
                   const SizedBox(height: 10),
@@ -86,7 +96,9 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Get.offAndToNamed('/homePageTemp');
+          },
           child: Container(
             color: NewColorSet.blue,
             height: 60,
@@ -134,6 +146,26 @@ class _SignUpPageState extends State<SignUpPage> {
           style: TextStyle(
             color: _emailCheck ? NewColorSet.blue : NewColorSet.red,
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPhoneCheckWidget() {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          right: 40,
+        ),
+        child: Text(
+          _phoneCheck
+              ? "휴대폰 번호 형식이 올바릅니다"
+              : "휴대폰 번호 형식이 올바르지 않습니다.\nex. 010-0000-0000",
+          style: TextStyle(
+            color: _phoneCheck ? NewColorSet.blue : NewColorSet.red,
+          ),
+          textAlign: TextAlign.right,
         ),
       ),
     );
@@ -344,7 +376,15 @@ class _SignUpPageState extends State<SignUpPage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
                 onChanged: (value) {
-                  _phoneController.text = value.toString();
+                  if (validatePhone(value)) {
+                    setState(() {
+                      _phoneCheck = true;
+                    });
+                  } else {
+                    setState(() {
+                      _phoneCheck = false;
+                    });
+                  }
                 },
                 keyboardType: TextInputType.phone,
                 textInputAction: TextInputAction.next,

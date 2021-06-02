@@ -124,7 +124,7 @@ class BuildTile extends StatelessWidget {
   }
 
   Widget buildBadge(String title, double value) {
-    Color warningColor = value >= 1 ? NewColorSet.red : NewColorSet.blue;
+    Color warningColor = value >= 0.5 ? NewColorSet.red : NewColorSet.blue;
     return Padding(
       padding: const EdgeInsets.only(right: 5),
       child: Container(
@@ -135,7 +135,7 @@ class BuildTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           child: Text(
-            title + " " + value.toString(),
+            title + " " + (value * 100).toStringAsFixed(0),
             style: TextStyle(
               color: ColorSet.white,
               fontWeight: FontWeight.w600,

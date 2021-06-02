@@ -147,7 +147,7 @@ class _SignInPageState extends State<SignInPage> {
           onTap: () {
             validTextField(_idEditingController) &&
                     validTextField(_passwordEditingController)
-                ? print("둘다 입력")
+                ? Get.offAllNamed('/')
                 : print("오류");
           },
           child: Container(

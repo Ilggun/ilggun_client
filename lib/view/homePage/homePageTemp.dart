@@ -8,81 +8,21 @@ import 'package:ilggun/style/colorStyle.dart';
 import 'package:ilggun/view/homePage/component/buildTile.dart';
 import 'package:intl/intl.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage2 extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageState2 createState() => _HomePageState2();
 }
 
-class _HomePageState extends State<HomePage> {
-  Random _random = new Random();
+class _HomePageState2 extends State<HomePage2> {
   List<Info> infoList = [];
   List<Info> infoListView;
 
   String updateTimeText;
   TextEditingController _searchController = TextEditingController();
 
-  void addInfo() {
-    infoList.add(
-      Info(
-          title: "서버실 1",
-          product: "A465FBE45IGP213",
-          temperature: 0.32,
-          humidity: 0.25,
-          gas: 0.0,
-          smoke: 0.0),
-    );
-    infoList.add(
-      Info(
-          title: "서버실 2",
-          product: "A465FBE45IGP214",
-          temperature: _random.nextDouble(),
-          humidity: _random.nextDouble(),
-          gas: _random.nextDouble(),
-          smoke: _random.nextDouble()),
-    );
-    infoList.add(
-      Info(
-          title: "서버실 3",
-          product: "A465FBE45IGP215",
-          temperature: _random.nextDouble(),
-          humidity: _random.nextDouble(),
-          gas: _random.nextDouble(),
-          smoke: _random.nextDouble()),
-    );
-    infoList.add(
-      Info(
-          title: "서버실 4",
-          product: "A465FBE45IGP216",
-          temperature: _random.nextDouble(),
-          humidity: _random.nextDouble(),
-          gas: _random.nextDouble(),
-          smoke: _random.nextDouble()),
-    );
-    infoList.add(
-      Info(
-          title: "서버실 5",
-          product: "A465FBE45IGP217",
-          temperature: _random.nextDouble(),
-          humidity: _random.nextDouble(),
-          gas: _random.nextDouble(),
-          smoke: _random.nextDouble()),
-    );
-    infoList.add(
-      Info(
-          title: "서버실 6",
-          product: "A465FBE45IGP218",
-          temperature: _random.nextDouble(),
-          humidity: _random.nextDouble(),
-          gas: _random.nextDouble(),
-          smoke: _random.nextDouble()),
-    );
-  }
-
   @override
   void initState() {
     updateTimeText = DateFormat('yyyy:MM:dd:kk:mm').format(DateTime.now());
-
-    addInfo();
     infoListView = infoList;
     super.initState();
   }
@@ -99,7 +39,6 @@ class _HomePageState extends State<HomePage> {
                 print("clicke");
                 setState(() {
                   infoList.clear();
-                  addInfo();
                 });
               },
               child: Column(
