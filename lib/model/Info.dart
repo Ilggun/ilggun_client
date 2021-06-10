@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 class Info {
+  DateTime dateTime;
   String title;
   String product;
   double temperature;
@@ -9,12 +10,14 @@ class Info {
   double smoke;
 
   Info(
-      {@required String title,
+      {DateTime dateTime,
+      @required String title,
       @required String product,
       @required double temperature,
       @required double humidity,
       @required double gas,
       @required double smoke}) {
+    this.dateTime = dateTime;
     this.title = title;
     this.product = product;
     this.temperature = temperature;
@@ -23,12 +26,17 @@ class Info {
     this.smoke = smoke;
   }
 
+  DateTime getDateTime() => dateTime;
   String getTitle() => title;
   String getProduct() => product;
   double getTemperature() => temperature;
   double getHumidity() => humidity;
   double getGas() => gas;
   double getSmoke() => smoke;
+
+  void setDateTime(DateTime dateTime) {
+    this.dateTime = dateTime;
+  }
 
   void setTitle(String title) {
     this.title = title;

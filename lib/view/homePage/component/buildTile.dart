@@ -7,6 +7,7 @@ import 'package:ilggun/style/shadowStyle.dart';
 
 class BuildTile extends StatelessWidget {
   final Info info;
+  int idx;
 
   BuildTile({@required this.info});
 

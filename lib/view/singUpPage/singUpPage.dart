@@ -43,7 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   bool validatePhone(String value) {
-    Pattern pattern = r'^\d{3}-\d{3,4}-\d{4}$';
+    Pattern pattern = r'^\d{3}\d{3,4}\d{4}$';
     RegExp regex = new RegExp(pattern);
     return (!regex.hasMatch(value)) ? false : true;
   }
@@ -122,7 +122,7 @@ class _SignUpPageState extends State<SignUpPage> {
       alignment: Alignment.centerRight,
       child: Padding(
         padding: const EdgeInsets.only(
-          right: 40,
+          right: 50,
         ),
         child: Text(
           _passwordCheck ? "비밀번호가 일치합니다" : "비밀번호가 일치하지 않습니다",
@@ -139,7 +139,7 @@ class _SignUpPageState extends State<SignUpPage> {
       alignment: Alignment.centerRight,
       child: Padding(
         padding: const EdgeInsets.only(
-          right: 40,
+          right: 50,
         ),
         child: Text(
           _emailCheck ? "이메일 형식이 올바릅니다" : "이메일 형식이 올바르지 않습니다.",
@@ -156,12 +156,12 @@ class _SignUpPageState extends State<SignUpPage> {
       alignment: Alignment.centerRight,
       child: Padding(
         padding: const EdgeInsets.only(
-          right: 40,
+          right: 50,
         ),
         child: Text(
           _phoneCheck
               ? "휴대폰 번호 형식이 올바릅니다"
-              : "휴대폰 번호 형식이 올바르지 않습니다.\nex. 010-0000-0000",
+              : "휴대폰 번호 형식이 올바르지 않습니다.\nex. 01000000000",
           style: TextStyle(
             color: _phoneCheck ? NewColorSet.blue : NewColorSet.red,
           ),
@@ -173,7 +173,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _buildIDArea() {
     return Padding(
-      padding: const EdgeInsets.only(left: 40, right: 40),
+      padding: const EdgeInsets.only(left: 50, right: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -235,7 +235,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _buildPasswordArea() {
     return Padding(
-      padding: const EdgeInsets.only(left: 40, right: 40),
+      padding: const EdgeInsets.only(left: 50, right: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -246,7 +246,7 @@ class _SignUpPageState extends State<SignUpPage> {
               boxShadow: ShadowStyle.shadow(),
             ),
             alignment: Alignment.center,
-            width: Get.size.width * 0.8,
+            width: Get.size.width * 0.6,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
@@ -281,7 +281,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _buildPasswordCheckArea() {
     return Padding(
-      padding: const EdgeInsets.only(left: 40, right: 40),
+      padding: const EdgeInsets.only(left: 50, right: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -292,7 +292,7 @@ class _SignUpPageState extends State<SignUpPage> {
               boxShadow: ShadowStyle.shadow(),
             ),
             alignment: Alignment.center,
-            width: Get.size.width * 0.8,
+            width: Get.size.width * 0.6,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
@@ -327,7 +327,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _buildNameArea() {
     return Padding(
-      padding: const EdgeInsets.only(left: 40, right: 40),
+      padding: const EdgeInsets.only(left: 50, right: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -338,7 +338,7 @@ class _SignUpPageState extends State<SignUpPage> {
               boxShadow: ShadowStyle.shadow(),
             ),
             alignment: Alignment.center,
-            width: Get.size.width * 0.8,
+            width: Get.size.width * 0.6,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
@@ -360,7 +360,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _buildPhoneArea() {
     return Padding(
-      padding: const EdgeInsets.only(left: 40, right: 40),
+      padding: const EdgeInsets.only(left: 50, right: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -371,7 +371,7 @@ class _SignUpPageState extends State<SignUpPage> {
               boxShadow: ShadowStyle.shadow(),
             ),
             alignment: Alignment.center,
-            width: Get.size.width * 0.8,
+            width: Get.size.width * 0.6,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
@@ -404,7 +404,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _buildMailArea() {
     return Padding(
-      padding: const EdgeInsets.only(left: 40, right: 40),
+      padding: const EdgeInsets.only(left: 50, right: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -415,7 +415,7 @@ class _SignUpPageState extends State<SignUpPage> {
               boxShadow: ShadowStyle.shadow(),
             ),
             alignment: Alignment.center,
-            width: Get.size.width * 0.8,
+            width: Get.size.width * 0.6,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
