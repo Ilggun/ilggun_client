@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'dart:isolate';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -14,6 +16,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Isolate _isolate;
+  bool _running = false;
+  ReceivePort _receivePort;
+  static int _counter = 0;
+
   Random _random = new Random();
   List<Info> infoList = [];
   List<Info> infoListView;
@@ -22,12 +29,13 @@ class _HomePageState extends State<HomePage> {
   TextEditingController _searchController = TextEditingController();
 
   void addInfo() {
+    Random random = new Random();
     infoList.add(
       Info(
           title: "서버실 1",
           product: "A465FBE45IGP213",
-          temperature: 0.32,
-          humidity: 0.25,
+          temperature: 0.28 + (random.nextDouble() * 0.005),
+          humidity: 0.20 + (random.nextDouble() * 0.005),
           gas: 0.0,
           smoke: 0.0),
     );
@@ -80,11 +88,43 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    Future.delayed(Duration.zero, () async {
+      _start();
+    });
+
     updateTimeText = DateFormat('yyyy:MM:dd:kk:mm').format(DateTime.now());
 
     addInfo();
     infoListView = infoList;
     super.initState();
+  }
+
+  void _start() async {
+    _running = true;
+    _receivePort = ReceivePort();
+    _isolate = await Isolate.spawn(_checkTImer, _receivePort.sendPort);
+    _receivePort.listen(_handleMessage, onDone: () {
+      print("done!");
+    });
+  }
+
+  static void _checkTImer(SendPort sendPort) async {
+    Timer.periodic(new Duration(seconds: 10), (Timer t) async {
+      _counter++;
+      String msg = 'notification ' + _counter.toString();
+      sendPort.send(msg);
+    });
+  }
+
+  void sendData(var data) {
+    print(data);
+  }
+
+  void _handleMessage(dynamic data) async {
+    setState(() {
+      infoList.clear();
+      addInfo();
+    });
   }
 
   @override
@@ -156,6 +196,7 @@ class _HomePageState extends State<HomePage> {
                   return buildAddTile();
                 // else if (index == infoList.length + 1)
                 //   return buildRefreshButton();
+
                 else
                   return Column(
                     children: [
